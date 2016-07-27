@@ -1,0 +1,53 @@
+{
+  "name": "ingredients",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "extra-portion": {
+      "type": "boolean",
+      "required": true
+    },
+    "img-url": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "value-to-add": {
+      "type": "number",
+      "required": true
+    },
+    "value-to-remove": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

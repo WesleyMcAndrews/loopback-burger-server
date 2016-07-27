@@ -1,0 +1,32 @@
+module.exports = function(app) {
+var MongoDB = app.dataSources.Cloudant;
+
+MongoDB.automigrate('customers', function(err) {
+   if (err) throw (err);
+   var customers = app.models.customers;
+
+   customers.create([
+    {username: 'Admin', email: 'admin@admin.com', password: '1234'},
+    {username: 'wesley', email: 'wesley@mcandrews.com.br', password: '1234'}
+  ], function(err, customers) {
+    if (err) return cb(err);
+     var Role = app.models.Role;
+    var RoleMapping = app.models.RoleMapping;
+
+    //create the admin role
+    Role.create({
+      name: 'admin'
+    }, function(err, role) {
+      if (err) cb(err);
+       //make admin
+      role.principals.create({
+        principalType: RoleMapping.USER,
+        principalId: customers[0].id
+      }, function(err, principal) {
+        if (err) throw (err);
+      });
+    });
+  });
+});
+
+};

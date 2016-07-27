@@ -1,0 +1,12 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "Cloudant": {
+    "url": "https://471874b4-5523-4d60-926a-8af730c2ac1f-bluemix:6dd1c0f4f5505d5bb419646dc861d52660e003be8f07bc6389190a3a5cfc2968@471874b4-5523-4d60-926a-8af730c2ac1f-bluemix.cloudant.com",
+    "database": "burger",
+    "name": "Cloudant",
+    "connector": "cloudant"
+  }
+}

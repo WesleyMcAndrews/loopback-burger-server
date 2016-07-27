@@ -1,0 +1,60 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../node_modules/loopback-ds-timestamp-mixin",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "Cloudant"
+  },
+  "AccessToken": {
+    "dataSource": "Cloudant",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "Cloudant",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "Cloudant",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "Cloudant",
+    "public": false
+  },
+  "dishes": {
+    "dataSource": "Cloudant",
+    "public": true
+  },
+  "ingredients": {
+    "dataSource": "Cloudant",
+    "public": true
+  },
+  "orders": {
+    "dataSource": "Cloudant",
+    "public": true
+  },
+  "products": {
+    "dataSource": "Cloudant",
+    "public": true
+  },
+  "comments": {
+    "dataSource": "Cloudant",
+    "public": true
+  },
+  "customers": {
+    "dataSource": "Cloudant",
+    "public": true
+  }
+}

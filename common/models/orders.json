@@ -1,0 +1,66 @@
+{
+  "name": "orders",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "delivery-add": {
+      "type": "string",
+      "required": true
+    },
+    "gps": {
+      "type": "geopoint"
+    },
+    "order-no": {
+      "type": "number",
+      "required": true
+    },
+    "is-for-delivery": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "payment-method": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": "unprocessed"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "products": {
+      "type": "hasMany",
+      "model": "products",
+      "foreignKey": ""
+    },
+    "customers": {
+      "type": "belongsTo",
+      "model": "customers",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
