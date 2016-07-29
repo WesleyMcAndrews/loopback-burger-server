@@ -4,7 +4,8 @@
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
-      "./models"
+      "./models",
+	  "./node_modules/loopback-component-passport/lib/models"
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -32,6 +33,14 @@
   "Role": {
     "dataSource": "Cloudant",
     "public": false
+  },
+  "UserCredential": {
+    "dataSource": "Cloudant",
+	"public": true
+  },
+  "UserIdentity": {
+   "dataSource": "Cloudant",
+   "public": true
   },
   "dishes": {
     "dataSource": "Cloudant",
